@@ -105,3 +105,25 @@ export default function ErrorPage({ error }: { error: Error }) {
 **NOTE :** `error.tsx` should always be a client component.
 
 - In summary, to manage data fetching states add a `loading.tsx` file with the React component for the loading state and an `error.tsx` file with a client component to handle error states.
+
+### Data Fetching patterns 
+
+- When fetching data inside components, you need to be aware of two data fetching patterns :
+
+    1. Sequential Data Fetching 
+    2. Parallel Data Fetching 
+
+## 1. Sequential Data Fetching
+
+- In sequential data fetching, requests in a component tree are dependent on each other. This can lead to longer loading time.
+
+### Demo 
+
+- We'll create a Post component.
+
+    - Fetches all posts.
+    - For each post, fetch author using the userId property.
+    - Example of sequential fetching because we need the userId from each post before we can fetch it's author
+
+- First we fetch all posts from `https://jsonplaceholder.typicode.com/posts`. Then for each post we render, we make another fetch request to fetch its author's details. Each author's request has to wait
+for the post request to complete because we need the user Id from the individual post.
