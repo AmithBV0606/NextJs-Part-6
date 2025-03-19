@@ -45,3 +45,23 @@ Section 2 : Rendering
 - Use Client component for data fetching only when you absolutely need to, like when you need realtime updates or when your data depends on client side interactions that you can't predict on the server side.
 
 - Refer `users-client/page.tsx` file for demo.
+
+## Fetching Data with Server Components
+
+- The RSC architecture supports async and await keywords in Server Components.
+
+- This means we can write our data fetching code just like regular JavaScript, using async functions coupled with the await keyword.
+
+- Refer `users-server/page.tsx` file for demo.
+
+### Request memoization : 
+
+<img src="./assets/Pic-1.png" />
+
+- This means you can fetch data wherever you need it in your component tree without worrying about duplicate network requests.
+
+- React will only make the actual fetch once and reuses the result for subsequent calls during the same render pass.
+
+- It's a React feature and thereby available in Next.js.
+
+- Lets you write data fetching code exactly where you need it rather than having to centralize fetches and pass data down through props
