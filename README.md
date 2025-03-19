@@ -39,3 +39,9 @@ Section 2 : Rendering
     - You get better performance since you're closer to your data sources.
     - Your client-side bundle stays lean because the heavy lifting happens server-side.
     - Your sensitive operations and API keys remain secure on the server.
+
+## Fetching Data in Client Components
+
+- Use Client component for data fetching only when you absolutely need to, like when you need realtime updates or when your data depends on client side interactions that you can't predict on the server side.
+
+- Refer `users-client/page.tsx` file for demo.
