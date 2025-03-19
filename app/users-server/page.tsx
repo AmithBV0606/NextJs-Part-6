@@ -7,9 +7,11 @@ type User = {
 };
 
 export default async function UsersServer() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
   const users: User[] = await response.json();
-//   console.log(users);
+  //   console.log(users);
 
   return (
     <div>
@@ -17,7 +19,7 @@ export default async function UsersServer() {
         {users.map((user) => (
           <li
             key={user.id}
-            className="p-4 bg-yellow-400 shadow-md rounded-lg text-gray-700"
+            className="p-4 bg-orange-200 shadow-md rounded-lg text-gray-700"
           >
             <div className="font-bold">{user.name}</div>
 

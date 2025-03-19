@@ -64,4 +64,44 @@ Section 2 : Rendering
 
 - It's a React feature and thereby available in Next.js.
 
-- Lets you write data fetching code exactly where you need it rather than having to centralize fetches and pass data down through props
+- Lets you write data fetching code exactly where you need it rather than having to centralize fetches and pass data down through props.
+
+## Loading and Error States (In server components)
+
+- While client component requires you to manage these states with separate variables and conditional rendering, server components make this process much cleaner.
+
+- To implement a loading state, all we need to do is define and export a React component in `loading.tsx`.
+
+```js
+export default function LoadingPage() {
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-t-2 border-white" />
+    </div>
+  );
+}
+```
+
+- For handling errors, define and export a React component in `error.tsx`.
+
+```js
+"use client";
+
+import { useEffect } from "react";
+
+export default function ErrorPage({ error }: { error: Error }) {
+  useEffect(() => {
+    console.log(`${error}`);
+  }, [error]);
+
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <div className="text-2xl text-red-500">Error fetching users data!!</div>
+    </div>
+  );
+}
+```
+
+**NOTE :** `error.tsx` should always be a client component.
+
+- In summary, to manage data fetching states add a `loading.tsx` file with the React component for the loading state and an `error.tsx` file with a client component to handle error states.
