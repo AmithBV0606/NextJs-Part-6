@@ -134,3 +134,55 @@ export default function ErrorPage({ error }: { error: Error }) {
 - Parallel data fetching is particularly useful when you have multiple independent pieces of data that you need to fetch. 
 
 - Instead of fetching them one after another, you can fetch them all at once and reduce the total loading time.
+
+## Parallel Data Fetching
+
+- We've looked at how to fetch data from API endpoints using the Fetch API.
+
+- Let's dive into fetching data from a database in Server Components.
+
+- What we're about to cover is super important - it's the foundation for data mutations and server actions coming up next.
+
+- Two key reasons why fetching data directly from a database is powerful:
+
+  1. Server Components have direct access to server-side resources, which makes database interactions seamless.
+
+  2. Since everything happens on the server, we don't need API routes or worry about exposing sensitive information to the client.
+
+- We're going to be working with two super helpful tools - SQLite and Prisma.
+
+<ins>**SQLite**</ins>
+
+  - A simple, file-based database to store information in your project.
+  - It doesn't require a server or a complex setup and it's perfect for learning and prototyping.
+  
+<ins>**Prisma**</ins>
+
+  - A tool that makes it really easy to talk to your database
+  - It's like a translator that helps your code communicate with SQLite.
+
+### Demo/Setup (Prisma + SQLite) :
+
+- Install prisma-cli as dev dependency.
+
+```bash
+npm install prisma -D
+```
+
+- Initialize prisma with SQLite
+
+```bash
+npx prisma init --datasource-provider sqlite
+```
+
+- After running the above command there would be a folder named `prisma` would be generated.
+
+- After adding the models inside `prisma/schema.prisma` file, run a migration to create the database tables from the Prisma's schema, by running the following command.
+
+```bash
+npx prisma migrate dev --name init
+```
+
+- Then create a file named `prisma-db.ts` in the root folder. Inside that file, initialize the prisma client and define the methods which performs the CRUD operations on our SQLite database.
+
+- Then, inside the app folder create a route called `products-db` and inside that route create a file named `page.tsx`, where you can write a server component which can talk to our database directly.
