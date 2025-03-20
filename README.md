@@ -29,7 +29,7 @@ Section 2 : Rendering
 
 - So far, we've been working with hard-coded content in our routes and components.
 
-- In actual enterprise apps, you're usually pullng data from external sources.
+- In actual enterprise apps, you're usually pulling data from external sources.
 
 - The App router is built on React Server Components (RSC) architecture which gives us the flexibility to fetch data using either server components or client components.
 
@@ -68,7 +68,7 @@ Section 2 : Rendering
 
 ## Loading and Error States (In server components)
 
-- While client component requires you to manage these states with separate variables and conditional rendering, server components make this process much cleaner.
+- While client component requires you to manage these states with separate state variables and conditional rendering, server components make this process much cleaner.
 
 - To implement a loading state, all we need to do is define and export a React component in `loading.tsx`.
 
@@ -121,9 +121,16 @@ export default function ErrorPage({ error }: { error: Error }) {
 
 - We'll create a Post component.
 
-    - Fetches all posts.
-    - For each post, fetch author using the userId property.
-    - Example of sequential fetching because we need the userId from each post before we can fetch it's author
+    - Fetches all posts from `https://jsonplaceholder.typicode.com/posts` endpoint.
+    - For each post, fetch author using the userId property from `https://jsonplaceholder.typicode.com/users` endpoint..
+    - This would be the perfect example of sequential data fetching because we need the userId from each post before we can fetch it's author.
 
-- First we fetch all posts from `https://jsonplaceholder.typicode.com/posts`. Then for each post we render, we make another fetch request to fetch its author's details. Each author's request has to wait
-for the post request to complete because we need the user Id from the individual post.
+**Summary :** First we fetch all posts from `https://jsonplaceholder.typicode.com/posts`. Then for each post we render, we make another fetch request to fetch its author's details from `https://jsonplaceholder.typicode.com/users` edpoint. Each author's request has to wait for the post request to complete because we need the user Id from the individual post.
+
+## 2. Parallel Data Fetching
+
+- In parallel data fetching, requests in a route are eagerly initiated and will load data at the same time. This reduces the total time it takes to laod the data.
+
+- Parallel data fetching is particularly useful when you have multiple independent pieces of data that you need to fetch. 
+
+- Instead of fetching them one after another, you can fetch them all at once and reduce the total loading time.

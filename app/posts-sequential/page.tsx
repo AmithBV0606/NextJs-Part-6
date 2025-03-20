@@ -28,6 +28,7 @@ export default async function PostsSequential() {
             <p className="text-gray-600 mb-4 leading-relaxed">{post.body}</p>
 
             {/* <p>Author name to be fetched</p> */}
+            {/* Since Author component is dependent on PostsSequential component we can use Suspense for handling the delayed straming of data */}
             <Suspense
               fallback={
                 <div className="text-sm text-gray-500">Loading author...</div>
