@@ -186,3 +186,18 @@ npx prisma migrate dev --name init
 - Then create a file named `prisma-db.ts` in the root folder. Inside that file, initialize the prisma client and define the methods which performs the CRUD operations on our SQLite database.
 
 - Then, inside the app folder create a route called `products-db` and inside that route create a file named `page.tsx`, where you can write a server component which can talk to our database directly.
+
+## Data Mutations
+
+- When we work with data, we're typically performing what we call CRUD
+
+  - Create
+  - Read
+  - Update
+  - Delete
+
+- To really appreciate the app router's approach to data mutations, it's worth looking at how we've traditionally handled data mutations in React.
+
+- This comparision will help us appreciate the benefits of the app router approach.
+
+- Refer `react-form/page.tsx` and `react-form/api/route.ts` file to see how data mutations are  traditionally handled in React.
