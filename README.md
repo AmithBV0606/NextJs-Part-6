@@ -135,7 +135,7 @@ export default function ErrorPage({ error }: { error: Error }) {
 
 - Instead of fetching them one after another, you can fetch them all at once and reduce the total loading time.
 
-## Parallel Data Fetching
+## Fetching From a Database
 
 - We've looked at how to fetch data from API endpoints using the Fetch API.
 
@@ -201,3 +201,39 @@ npx prisma migrate dev --name init
 - This comparision will help us appreciate the benefits of the app router approach.
 
 - Refer `react-form/page.tsx` and `react-form/api/route.ts` file to see how data mutations are  traditionally handled in React.
+
+## Forms with Server Actions
+
+### Server Actions 
+
+- Previously we saw the traditional way of handling data mutations in React. 
+
+- Server Actions are asynchronous functions that are executed on the server.
+
+- They can be called in server and client components to handle form submissions and data mutations in Next.js applications.
+
+- You should use Server Actions when you,
+
+  - Need to perform secure database operations.
+  - Want to reduce API boilerplate code.
+  - Need progressive enhancement for forms.
+  - Want to optimize for performance.
+
+- A server action can be defined with the React "use server" directive.
+
+- You can place the directive,
+
+  - At the top of an async function to mark the function as a server action OR
+  - At the top of a seperate file to mark all exports of that file as server actions.
+
+- Refer `products-db-create/page.tsx` file for Server Action demo.
+
+### Server Actions benefits
+
+- **Simplified code** : they dramatically simplify your code as there is no need for separate API routes or client-side state management for form data.
+
+- **Improved security** : they boost security by keeping sensitive operations server-side, away from potential threats.
+
+- **Better performance** : they improve performance because there's less JavaScript running on the client, leading to faster load times and better core web vitals.
+
+- **Progressive enhancement** : forms keep working even if JavaScript is turned off in the browser – making your apps more accessible and resilient.
