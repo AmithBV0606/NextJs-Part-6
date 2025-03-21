@@ -299,3 +299,9 @@ const status = useFormStatus();
 ## Update Server Action
 
 - Refer `products-db/[id]/page.tsx`, `products-db/[id]/product-edit-form.tsx`, `products-db/page.tsx` and `actions/produucts.ts` files.
+
+## Delete Server Action
+
+- Start with adding a delete button to each list of products card.
+
+- Refer `products-db/page.tsx` and `actions/products` file.
