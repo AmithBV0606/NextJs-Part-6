@@ -305,3 +305,13 @@ const status = useFormStatus();
 - Start with adding a delete button to each list of products card.
 
 - Refer `products-db/page.tsx` and `actions/products` file.
+
+## Optimistic Updates with useOptimistic Hook
+
+- `useOptimistic` is a React Hook that provides a way to optimistically update the UI while an asynchronous action is underway.
+
+- This technique helps make our apps feel more responsive, especially when working with forms.
+
+- Instead of making users wait for server responses, we can show them the expected result right away.
+
+- Refer `products-db/page.tsx` and `products-db/product-detail.tsx` files.
