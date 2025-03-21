@@ -1,4 +1,4 @@
-# Next-Js by Codevolution : Part-5
+# Next-Js by Codevolution : Part-6
 
 ### Topics Covered :
 
@@ -315,3 +315,23 @@ const status = useFormStatus();
 - Instead of making users wait for server responses, we can show them the expected result right away.
 
 - Refer `products-db/page.tsx` and `products-db/product-detail.tsx` files.
+
+## Form Component
+
+- The Form component is built on top of the HTML form element.
+
+- Comes with some powerful features that make it perfect for modern web applications :
+
+  - It automatically prefetches loading UI.
+  - It handles client-side navigation on form submission.
+  - It provides progressive enhancement out of the box.
+
+- when the Form component becomes visible, it prefetches the loading UI associated with "/products-db" route.
+
+- when a user submits the search, it instantly navigates to the products page client-side and the form data gets turned into URL params.
+
+- it'll show the loading state while the search results are being fetched.
+
+- once the data is ready, the results are displayed in the UI.
+
+- Refer `products-db/loading.tsx`, `components/search.tsx`, `app/page.tsx`, `/prisma-db.ts` and `products-db/page.tsx` files.
