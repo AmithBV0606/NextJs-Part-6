@@ -295,3 +295,7 @@ const status = useFormStatus();
 - Go with "pending" from `useFormStatus` when you're building reusable components that are meant to live inside forms. For example, submit buttons or loading spinners that you'll want to use across different forms in your application.
 
 - Choose "isPending" from `useActionState` when you need to keep track of server actions that aren't necessarily related to form submissions. It gives you that extra flexibility.
+
+## Update Server Action
+
+- Refer `products-db/[id]/page.tsx`, `products-db/[id]/product-edit-form.tsx`, `products-db/page.tsx` and `actions/produucts.ts` files.
