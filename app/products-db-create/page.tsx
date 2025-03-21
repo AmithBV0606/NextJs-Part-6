@@ -1,18 +1,21 @@
-import { addProduct } from "@/prisma-db";
-import { redirect } from "next/navigation";
-import Submit from "@/components/submit";
+"use client"
+
+// import { addProduct } from "@/prisma-db";
+// import { redirect } from "next/navigation";
+// import Submit from "@/components/submit";
 import { useActionState } from "react";
+import { FormState, Errors, createProduct } from "@/actions/products";
 
 // Form validation useActionState Hook
-type Errors = {
-  title?: string;
-  price?: string;
-  description?: string;
-};
+// type Errors = {
+//   title?: string;
+//   price?: string;
+//   description?: string;
+// };
 
-type FormState = {
-  errors: Errors;
-};
+// type FormState = {
+//   errors: Errors;
+// };
 
 export default function AddProductPage() {
   const initialState: FormState = {
@@ -24,36 +27,36 @@ export default function AddProductPage() {
     initialState
   );
 
-  // Server action
-  async function createProduct(formData: FormData) {
-    "use server";
+  // // Server action
+  // async function createProduct(formData: FormData) {
+  //   "use server";
 
-    // console.log(formData);
-    const title = formData.get("title") as string;
-    const price = formData.get("price") as string;
-    const description = formData.get("description") as string;
+  //   // console.log(formData);
+  //   const title = formData.get("title") as string;
+  //   const price = formData.get("price") as string;
+  //   const description = formData.get("description") as string;
 
-    const errors: Errors = {};
+  //   const errors: Errors = {};
 
-    if (!title) {
-      errors.title = "Title is required!!";
-    }
+  //   if (!title) {
+  //     errors.title = "Title is required!!";
+  //   }
 
-    if (!price) {
-      errors.price = "Price is required!!";
-    }
+  //   if (!price) {
+  //     errors.price = "Price is required!!";
+  //   }
 
-    if (!description) {
-      errors.description = "Description is required!!";
-    }
+  //   if (!description) {
+  //     errors.description = "Description is required!!";
+  //   }
 
-    if (Object.keys(errors).length > 0) {
-      return { errors: errors };
-    }
+  //   if (Object.keys(errors).length > 0) {
+  //     return { errors: errors };
+  //   }
 
-    await addProduct(title, parseInt(price), description);
-    redirect("/products-db");
-  }
+  //   await addProduct(title, parseInt(price), description);
+  //   redirect("/products-db");
+  // }
 
   return (
     <form action={formAction} className="p-4 space-y-6 max-w-96">

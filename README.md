@@ -271,3 +271,13 @@ const status = useFormStatus();
 - It is particularly helpful for handling form validation and error messages.
 
 - This hook takes 2 parameters, first the Server Action and an initial form state.
+
+- Refer `app/products-db-create/page.tsx` for examples of `useActionStatus` hook.
+
+## Separating Server Actions
+
+- Previously we hit a roadblock when we tried to define a server action in a client component.
+
+- The solution is to separate our Server Actions into it's own files keeping our server side logic cleanly separeted from our client side components.
+
+- Refer `app/products-db-create/page.tsx` and `actions/product.ts`.
