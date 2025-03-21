@@ -258,4 +258,16 @@ const status = useFormStatus();
 
 - We'll use "pending" to disable our submit button while the form is being processed.
 
+- With Next.js Server Actions we can use the `useFormStatus` hook from react Dom to manage state related to active form submission.
+
 - Refer `components/submit.tsx` and `app/products-db-create/page.tsx` for examples of `useFormStatus` hook.
+
+## Form validation <ins>useActionState Hook</ins>
+
+- Previously we learned about handling states with `useFormStatus`. Now lets look into managing error states in our forms.
+
+- `useActionState` is a React hook that allows us to update state based on the result of a form action.
+
+- It is particularly helpful for handling form validation and error messages.
+
+- This hook takes 2 parameters, first the Server Action and an initial form state.
