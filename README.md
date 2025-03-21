@@ -281,3 +281,17 @@ const status = useFormStatus();
 - The solution is to separate our Server Actions into it's own files keeping our server side logic cleanly separeted from our client side components.
 
 - Refer `app/products-db-create/page.tsx` and `actions/product.ts`.
+
+## useFormStatus vs useActionState
+
+<ins>**Pending (`useFormStatus`) Vs isPending (`useActionState`)**</ins> :
+
+- Both can help us determine if a form is being submitted and let us disable the submit button - but there's an interesting difference between them.
+
+- The pending state from `useFormStatus` is specifically for form submission.
+
+- "isPending" from `useActionState` can be used with any Action, not just form submission
+
+- Go with "pending" from `useFormStatus` when you're building reusable components that are meant to live inside forms. For example, submit buttons or loading spinners that you'll want to use across different forms in your application.
+
+- Choose "isPending" from `useActionState` when you need to keep track of server actions that aren't necessarily related to form submissions. It gives you that extra flexibility.
